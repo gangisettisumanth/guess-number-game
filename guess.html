@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cont{
+        background: rgb(37, 35, 36);
+        border:1px solid black;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    .row{
+        background: rgb(208, 15, 150);
+        margin: auto;
+        padding: auto;
+        border:1px dotted black;
+        width:600px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+    input{
+        border:1px solid black;
+        text-align: center;
+        width:150px;
+        height: 50px;
+        font-size: medium;
+    }
+    h1{
+        color:aquamarine;
+    }
+    button{
+        width:100px;
+        height: 50px;
+        margin: 10px;
+        border:1px solid black;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: center;
+        text-decoration: none;
+        background: blue;
+        color:antiquewhite;
+        cursor: pointer;
+    }
+    button:active {
+        background: rgb(118, 63, 63);
+}
+    p{
+        text-align: center;
+        width:auto;
+        height: 20px;
+    }
+</style>
+<body>
+    <div class="cont">
+        <div class="row">
+            <h1>GUESS THE NUMBER</h1>
+            <input type="text" id="inputtxt">
+            <button id="btn" onclick="guess()">Click ME</button>
+            <p id="res"></p>
+        </div>
+    </div>
+</body>
+<script>
+    let gameresult=document.getElementById("res");
+    let userinput=document.getElementById("inputtxt");
+    let opresult=Math.ceil(Math.random()*100);
+    console.log(opresult);
+
+    function guess(){
+
+        let  guessnumber=parseInt(userinput.value);
+
+        if (guessnumber > opresult){
+            gameresult.textContent="To High!..... Try Again";
+            gameresult.style.backgroundColor='#1e217c';
+        }
+        else if (guessnumber < opresult){
+            gameresult.textContent="To Low!..... Try Again";
+            gameresult.style.backgroundColor='#1e217c';
+        }
+        else if (guessnumber === opresult){
+            gameresult.textContent="Comgurlation Succesfully!......";
+            gameresult.style.backgroundColor='green';
+        }
+        else{
+            gameresult.textContent="Please Provide The Correct Input!........";
+            gameresult.style.backgroundColor='#1e217c';
+        }
+
+    }
+</script>
+</html>
